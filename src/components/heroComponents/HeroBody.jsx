@@ -13,27 +13,10 @@ import { Link } from "react-router-dom";
 
 import EcommerceImage from "../../assets/projectImages/eCommerce/hero_img.png";
 import GymImage from "../../assets/projectImages/gym/HomePageGraphic.png";
+import { projects } from "../../helper/projects";
+import { CgNametag } from "react-icons/cg";
 
 const HeroBody = () => {
-  const projects = [
-    {
-      title: "E-commerce Website",
-      description:
-        "A full-featured shopping experience with cart, checkout, and admin panel.",
-      img: EcommerceImage,
-      github: "https://github.com/98ganesham/eCommerce-frontend",
-      demo: "https://dhl-fashora.netlify.app/",
-    },
-    {
-      title: "Gym",
-      description:
-        "A modern fitness website designed to empower women through personalized training, community support, and motivation.",
-      img: GymImage,
-      github: "https://github.com/98ganesham/Gym",
-      demo: "https://empowerhergym.netlify.app/",
-    },
-  ];
-
   return (
     <Box mt={{ base: 8, md: 12, lg: 16 }}>
       {/* Section Header */}
@@ -57,7 +40,7 @@ const HeroBody = () => {
 
       {/* Project Cards */}
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-        {projects.map((project, index) => (
+        {projects.map(({ name, image, github, demo, ui, features }, index) => (
           <Box
             key={index}
             bg="white"
@@ -72,57 +55,66 @@ const HeroBody = () => {
           >
             {/* Image */}
             <Box
-              h="220px"
+              h="230px" // slightly taller for better visibility
               w="100%"
               display="flex"
               justifyContent="center"
               alignItems="center"
               bg="gray.50"
+              overflow="hidden" // ensures no overflow beyond the box
             >
               <Image
-                src={project.img}
-                alt={project.title}
-                objectFit="contain" // show entire image, not cropped
+                src={image}
+                alt={name}
+                objectFit="contain" // keeps image fully visible and not stretched
                 maxH="100%"
                 maxW="100%"
+                _hover={{ boxShadow: "lg", transform: "translateX(-3px)" }}
+                p={4} // adds inner spacing so large images don’t touch edges
               />
             </Box>
 
             {/* Content */}
             <Box flex="1" p={5} display="flex" flexDirection="column">
               <Heading fontSize="lg" mb={2}>
-                {project.title}
+                {name}
               </Heading>
               <Text fontSize="sm" color="gray.600" mb={4} flex="1">
-                {project.description}
+                {ui ||
+                  (features && features[0]) ||
+                  "A modern, responsive project"}
               </Text>
 
               {/* Actions */}
               <Flex gap={4} mt="auto" wrap="wrap">
-                <Button
-                  as="a"
-                  href={project.github}
-                  target="_blank"
-                  leftIcon={<FaInfoCircle />}
-                  variant="outline"
-                  size="sm"
-                  fontWeight="500"
-                  _hover={{ bg: "#4682B4", borderColor: "#f7f7f7" }}
-                >
-                  View Code
-                </Button>
-                <Button
-                  as="a"
-                  href={project.demo}
-                  target="_blank"
-                  leftIcon={<BsPlay />}
-                  bg="#87CEFA"
-                  size="sm"
-                  fontWeight="600"
-                  _hover={{ bg: "#4682B4", color: "white" }}
-                >
-                  Live Demo
-                </Button>
+                {github && (
+                  <Button
+                    as="a"
+                    href={github}
+                    target="_blank"
+                    leftIcon={<FaInfoCircle />}
+                    variant="outline"
+                    size="sm"
+                    fontWeight="500"
+                    _hover={{ bg: "#4682B4", borderColor: "#f7f7f7" }}
+                  >
+                    View Code
+                  </Button>
+                )}
+                {demo && (
+                  <Button
+                    as="a"
+                    href={demo}
+                    target="_blank"
+                    leftIcon={<BsPlay />}
+                    bg="#87CEFA"
+                    size="sm"
+                    fontWeight="600"
+                    _hover={{ bg: "#4682B4", color: "white" }}
+                  >
+                    Live Demo
+                  </Button>
+                )}
               </Flex>
             </Box>
           </Box>

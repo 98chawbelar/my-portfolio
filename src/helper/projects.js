@@ -7,6 +7,7 @@ export const projects = [
     name: "Hospital Booker",
     image: Hospital,
     languages: ["JavaScript", "React", "Redux Toolkit", "Axios"],
+    demo: "https://health-booker-dhl.vercel.app/",
     ui: "Chakra UI + React Icons + React Router + React Toast + Spinners",
     features: [
       "User registration and login",
@@ -15,12 +16,13 @@ export const projects = [
       "Role-based dashboards (Patient/Doctor)",
       "Real-time toast notifications",
     ],
-    github: "https://github.com/98ganesham/HealthBooker",
+    github: "https://github.com/98chawbelar/HealthBooker",
   },
   {
     name: "E-Commerce Frontend",
     image: Ecommerce,
     languages: ["React", "Vite", "JavaScript", "TailwindCSS"],
+    demo: "https://dhl-fashion.netlify.app/",
     ui: "TailwindCSS + React Router + React Toastify",
     features: [
       "Product listing and category filtering",
@@ -29,12 +31,13 @@ export const projects = [
       "Clean and responsive UI",
       "Built using Vite for fast performance",
     ],
-    github: "https://github.com/98ganesham/eCommerce-frontend",
+    github: "https://github.com/98chawbelar/eCommerce-frontend",
   },
   {
     name: "Gym Website",
     image: Gym,
     languages: ["TypeScript", "React", "Vite"],
+    demo: "https://empowerher-gym.vercel.app/",
     ui: "TailwindCSS + Framer Motion + React Hook Form + Heroicons",
     features: [
       "Smooth scroll navigation",
@@ -43,12 +46,13 @@ export const projects = [
       "Form validations with react-hook-form",
       "Mobile-responsive design",
     ],
-    github: "https://github.com/98ganesham/Gym",
+    github: "https://github.com/98chawbelar/Gym",
   },
   {
     name: "Car Rental Project",
     image: CarRental,
     languages: ["JavaScript", "React", "express"],
+
     tools: [
       "Axios",
       "Bcrypt",
@@ -67,6 +71,6 @@ export const projects = [
       "Role-based dashboards (user/owner)",
       "Real-time toast notifications",
     ],
-    github: "https://github.com/98ganesham/Rent_Car-fullstack",
+    github: "https://github.com/98chawbelar/Rent_Car-fullstack",
   },
 ];
