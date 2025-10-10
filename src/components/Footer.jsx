@@ -56,7 +56,7 @@ const Footer = () => {
               <FaFacebook />
             </Link>
             <Link
-              href="https://github.com/98ganesham"
+              href="https://github.com/98chawbelar"
               isExternal
               aria-label="GitHub"
               _hover={{ color: "#6e7681" }}
