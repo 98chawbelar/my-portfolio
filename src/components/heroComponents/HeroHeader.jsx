@@ -12,7 +12,7 @@ import { FaDownload, FaFacebook, FaMobile } from "react-icons/fa";
 import { LiaLinkedin } from "react-icons/lia";
 import { Link } from "react-router-dom";
 import Profile from "../../assets/images/Chaw_Be_Lar_Profile-removebg-preview.png";
-import Resume from "../../assets/resumePdf/Chaw Be Lar-Computer.pdf";
+import Resume from "../../assets/resumePdf/Chaw Be Lar_Dahal_Web Developer _ Full Stack Developer_resume.pdf";
 
 const HeroHeader = () => {
   return (
