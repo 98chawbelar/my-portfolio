@@ -21,6 +21,7 @@ import PaddingBox from "../assets/frame/PaddingBox";
 
 // Project Intro Section
 const ProjectIntro = () => (
+  <>
   <Box mb={10}>
     <Heading
       fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
@@ -32,7 +33,7 @@ const ProjectIntro = () => (
       My Projects
     </Heading>
 
-    <Text fontSize="md">
+    <Text fontSize="sm" color={useColorModeValue("gray.700", "gray.300")}>
       Over the past two years, I have dedicated myself to building this suite of
       full-stack and frontend applications as part of a personal learning
       journey and portfolio development. Each project reflects increasing
@@ -47,6 +48,31 @@ const ProjectIntro = () => (
       to sharpen specific technical skills.
     </Text>
   </Box>
+ 
+  </>
+);
+const UpcommingProjects = () => (
+  <>
+  <Box mb={10} mt={12}>
+    <Heading
+      fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+      fontWeight="semibold"
+      fontFamily="monospace"
+      lineHeight="short"
+      mb={4}
+    >
+      My Up-comming Projects
+    </Heading>
+
+    <Text fontSize="sm" color={useColorModeValue("gray.700", "gray.300")}>
+      Over the coming period, I am planning and preparing to build a new suite of full-stack and frontend applications as part of my continued learning journey and portfolio growth. These upcoming projects are designed to challenge my skills further while deepening my understanding of React, modern UI libraries, state management, and backend integrations.
+<br />
+<br />
+These projects are intended to be more than concept ideas — they are planned as real-world, scalable solutions. The primary upcoming projects include a Hotel Website, a Hotel Property Management System (PMS), a Shoes E-Commerce Platform, and a Game Download Website. Each project will focus on solving practical problems while applying clean architecture, performance optimization, and modern development best practices.
+    </Text>
+  </Box>
+ 
+  </>
 );
 
 // Single Project Card (Modern Design)
@@ -147,6 +173,7 @@ const Project = () => {
             <ProjectCard key={index} project={project} />
           ))}
         </SimpleGrid>
+        <UpcommingProjects />
       </Container>
     </PaddingBox>
   );
