@@ -22,60 +22,103 @@ import PaddingBox from "../assets/frame/PaddingBox";
 // Project Intro Section
 const ProjectIntro = () => (
   <>
-  <Box mb={10}>
-    <Heading
-      fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
-      fontWeight="semibold"
-      fontFamily="monospace"
-      lineHeight="short"
-      mb={4}
-    >
-      My Projects
-    </Heading>
+    <Box mb={10}>
+      <Heading
+        fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+        fontWeight="semibold"
+        fontFamily="monospace"
+        lineHeight="short"
+        mb={4}
+      >
+        My Projects
+      </Heading>
 
-    <Text fontSize="sm" color={useColorModeValue("gray.700", "gray.300")}>
-      Over the past two years, I have dedicated myself to building this suite of
-      full-stack and frontend applications as part of a personal learning
-      journey and portfolio development. Each project reflects increasing
-      complexity and a growing mastery of React, modern UI libraries, state
-      management, and backend integrations.
-      <br />
-      <br />
-      These projects are not just demos — they are designed as real-world
-      scalable solutions. While I’ve highlighted my three biggest projects below
-      (Gym, E-Commerce, and Hospital Booker), I have also created several
-      smaller projects like a Calculator App, To-Do List, Weather App, and more
-      to sharpen specific technical skills.
-    </Text>
-  </Box>
- 
+      <Text fontSize="sm" color={useColorModeValue("gray.700", "gray.300")}>
+        Over the past two years, I have dedicated myself to building this suite
+        of full-stack and frontend applications as part of a personal learning
+        journey and portfolio development. Each project reflects increasing
+        complexity and a growing mastery of React, modern UI libraries, state
+        management, and backend integrations.
+        <br />
+        <br />
+        These projects are not just demos — they are designed as real-world
+        scalable solutions. While I’ve highlighted my three biggest projects
+        below (Gym, E-Commerce, and Hospital Booker), I have also created
+        several smaller projects like a Calculator App, To-Do List, Weather
+        App, and more to sharpen specific technical skills.
+      </Text>
+    </Box>
   </>
 );
+
+// Upcoming Projects
 const UpcommingProjects = () => (
   <>
-  <Box mb={10} mt={12}>
-    <Heading
-      fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
-      fontWeight="semibold"
-      fontFamily="monospace"
-      lineHeight="short"
-      mb={4}
-    >
-      My Up-comming Projects
-    </Heading>
+    <Box mb={10} mt={12}>
+      <Heading
+        fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+        fontWeight="semibold"
+        fontFamily="monospace"
+        lineHeight="short"
+        mb={4}
+      >
+        My Up-comming Projects
+      </Heading>
 
-    <Text fontSize="sm" color={useColorModeValue("gray.700", "gray.300")}>
-      Over the coming period, I am planning and preparing to build a new suite of full-stack and frontend applications as part of my continued learning journey and portfolio growth. These upcoming projects are designed to challenge my skills further while deepening my understanding of React, modern UI libraries, state management, and backend integrations.
-<br />
-<br />
-These projects are intended to be more than concept ideas — they are planned as real-world, scalable solutions. The primary upcoming projects include a Hotel Website, a Hotel Property Management System (PMS), a Shoes E-Commerce Platform, and a Game Download Website. Each project will focus on solving practical problems while applying clean architecture, performance optimization, and modern development best practices.
-    </Text>
-  </Box>
- 
+      <Text fontSize="sm" color={useColorModeValue("gray.700", "gray.300")}>
+        Over the coming period, I am planning and preparing to build a new suite
+        of full-stack and frontend applications as part of my continued
+        learning journey and portfolio growth. These upcoming projects are
+        designed to challenge my skills further while deepening my
+        understanding of React, modern UI libraries, state management, and
+        backend integrations.
+        <br />
+        <br />
+        These projects are intended to be more than concept ideas — they are
+        planned as real-world, scalable solutions. The primary upcoming
+        projects include a Hotel Website, a Hotel Property Management System
+        (PMS), a  Game Download Website.
+      </Text>
+    </Box>
   </>
 );
 
-// Single Project Card (Modern Design)
+// Demo Notice Component
+const Notify = () => {
+  const bg = useColorModeValue("blue.50", "gray.700");
+  const border = useColorModeValue("blue.200", "gray.600");
+
+  return (
+    <Box
+      mt={12}
+      p={6}
+      borderRadius="xl"
+      bg={bg}
+      border="1px solid"
+      borderColor={border}
+    >
+      <Heading size="md" mb={3}>
+        Demo Notice
+      </Heading>
+
+      <Text fontSize="sm">
+        To view the full functionality of the Book Store project, please clone
+        the backend repository and run it locally.
+      </Text>
+
+      <List spacing={2} mt={3} fontSize="sm">
+        <ListItem>1. Clone the <strong>book-store-server <Link href="https://github.com/98chawbelar/book-store-server" isExternal>
+            https://github.com/98chawbelar/book-store-server
+          </Link></strong> repository</ListItem>
+        <ListItem>2. Install dependencies using <strong>npm install</strong></ListItem>
+        <ListItem>3. Start the server using <strong>npm run start</strong></ListItem>
+        <ListItem>4. Then open this frontend project to see the complete demo</ListItem>
+      </List>
+    </Box>
+  );
+};
+
+// Project Card
 const ProjectCard = ({ project }) => {
   const cardBg = useColorModeValue("white", "gray.800");
 
@@ -94,16 +137,10 @@ const ProjectCard = ({ project }) => {
       display="flex"
       flexDirection="column"
       justifyContent="space-between"
-      border="1px solid rgba(135, 206, 250, 0.5)" // sky blue border
+      border="1px solid rgba(135, 206, 250, 0.5)"
     >
       {/* Image */}
-      <Box
-        mb={4}
-        borderRadius="lg"
-        overflow="hidden"
-        height="auto"
-        position="relative"
-      >
+      <Box mb={4} borderRadius="lg" overflow="hidden">
         <Image
           src={project.image}
           alt={project.name}
@@ -114,16 +151,18 @@ const ProjectCard = ({ project }) => {
         />
       </Box>
 
-      {/* Text & Info */}
+      {/* Info */}
       <VStack align="start" spacing={3} flex={1}>
         <Heading size="md">{project.name}</Heading>
 
         <Text fontSize="sm">
-          <strong>Languages: {project.languages.join(", ")}</strong>
+          <strong>Languages:</strong> {project.languages.join(", ")}
         </Text>
+
         <Text fontSize="sm">
           <strong>UI Libraries:</strong> {project.ui}
         </Text>
+
         <Text fontSize="sm">
           <strong>Tools:</strong>{" "}
           {project.tools ? project.tools.join(", ") : "—"}
@@ -133,7 +172,8 @@ const ProjectCard = ({ project }) => {
           <Text fontWeight="semibold" fontSize="sm" mb={1}>
             Key Features:
           </Text>
-          <List spacing={2} pl={1}>
+
+          <List spacing={2}>
             {project.features.map((feature, i) => (
               <ListItem key={i} display="flex" alignItems="center">
                 <Icon as={FaCheckCircle} color="#87CEFA" mr={2} />
@@ -144,7 +184,7 @@ const ProjectCard = ({ project }) => {
         </Box>
       </VStack>
 
-      {/* GitHub Button */}
+      {/* GitHub Link */}
       <Link
         href={project.github}
         isExternal
@@ -155,7 +195,8 @@ const ProjectCard = ({ project }) => {
         fontWeight="bold"
         _hover={{ textDecoration: "underline" }}
       >
-        <Icon as={FaGithub} mr={2} /> View on GitHub
+        <Icon as={FaGithub} mr={2} />
+        View on GitHub
       </Link>
     </Box>
   );
@@ -173,6 +214,9 @@ const Project = () => {
             <ProjectCard key={index} project={project} />
           ))}
         </SimpleGrid>
+
+        <Notify />
+
         <UpcommingProjects />
       </Container>
     </PaddingBox>

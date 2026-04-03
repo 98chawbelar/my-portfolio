@@ -2,6 +2,7 @@ import Hospital from "../assets/projectImages/healthbooker/full_pic.png";
 import Ecommerce from "../assets/projectImages/eCommerce/hero_img.png";
 import Gym from "../assets/projectImages/gym/HomePageGraphic.png";
 import CarRental from "../assets/projectImages/carRental/car_rental_img.png";
+import BookStore from "../assets/projectImages/bookStore/book_store.png";
 export const projects = [
   {
     name: "Hospital Booker",
@@ -72,5 +73,21 @@ export const projects = [
       "Real-time toast notifications",
     ],
     github: "https://github.com/98chawbelar/Rent_Car-fullstack",
+  },
+  {
+    name: "Dahal Book Store",
+    image: BookStore,
+    languages: ["JavaScript", "React", "Redux Toolkit", "Axios"],
+    demo: "https://dahal-book-store.vercel.app/",
+    ui: "TailwindCSS + React Icons + React Router +sweetalert2",
+    features: [
+  "User authentication and account management",
+  "Browse and explore a wide collection of books",
+  "Add books to cart and manage shopping cart",
+  "Secure API authentication with JWT",
+  "Responsive UI with real-time notifications",
+],
+    github: "https://github.com/98chawbelar/book-store-client",
+    
   },
 ];
