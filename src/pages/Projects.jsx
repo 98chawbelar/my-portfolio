@@ -14,10 +14,12 @@ import {
   Icon,
   Heading,
   useColorModeValue,
+  Button,
 } from "@chakra-ui/react";
 import { FaGithub, FaCheckCircle } from "react-icons/fa";
 import { projects } from "../helper/projects";
 import PaddingBox from "../assets/frame/PaddingBox";
+import { BsPlay } from "react-icons/bs";
 
 // Project Intro Section
 const ProjectIntro = () => (
@@ -102,24 +104,19 @@ const Notify = () => {
       </Heading>
 
       <Text fontSize="sm">
-        To view the full functionality of the Book Store project, please clone
-        the backend repository and run it locally.
+        To view the full functionality of the Book Store project
+        <br />
+        <Link className="te" href="https://dahal-book-store-server.vercel.app/" isExternal >
+        View Backend API
+      </Link>
       </Text>
-
-      <List spacing={2} mt={3} fontSize="sm">
-        <ListItem>1. Clone the <strong>book-store-server <Link href="https://github.com/98chawbelar/book-store-server" isExternal>
-            https://github.com/98chawbelar/book-store-server
-          </Link></strong> repository</ListItem>
-        <ListItem>2. Install dependencies using <strong>npm install</strong></ListItem>
-        <ListItem>3. Start the server using <strong>npm run start</strong></ListItem>
-        <ListItem>4. Then open this frontend project to see the complete demo</ListItem>
-      </List>
+      
     </Box>
   );
 };
 
 // Project Card
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, demo }) => {
   const cardBg = useColorModeValue("white", "gray.800");
 
   return (
@@ -180,6 +177,7 @@ const ProjectCard = ({ project }) => {
                 <Text fontSize="sm">{feature}</Text>
               </ListItem>
             ))}
+            
           </List>
         </Box>
       </VStack>
@@ -198,6 +196,22 @@ const ProjectCard = ({ project }) => {
         <Icon as={FaGithub} mr={2} />
         View on GitHub
       </Link>
+      {demo && (
+                        <Button
+                          as="a"
+                          mt={2}
+                          href={demo}
+                          target="_blank"
+                          leftIcon={<BsPlay />}
+                          bg="#87CEFA"
+                          size="sm"
+                          fontWeight="600"
+                          _hover={{ bg: "#4682B4", color: "white" }}
+                        >
+                          Live Demo
+                        </Button>
+                      )}
+      
     </Box>
   );
 };
@@ -210,8 +224,8 @@ const Project = () => {
         <ProjectIntro />
 
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+          {projects.map((project,demo, index) => (
+            <ProjectCard key={index} project={project} demo={demo} />
           ))}
         </SimpleGrid>
 
