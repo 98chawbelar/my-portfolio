@@ -111,8 +111,9 @@ const Contact = () => {
                 <strong>Phone:</strong> +66 628 131 975
               </Text>
               <Text>
-                <strong>Location:</strong> 198, 202 Patthana Chonabot 3 Rd,
-                Khlong Song Ton Nun, Lat Krabang, Bangkok 10520
+                <strong>Location:</strong> 106 Pridi Banomyong 46
+Khwaeng Khlong Tan Nuea, Watthana
+Krung Thep Maha Nakhon,10110, Thailand
               </Text>
             </Box>
           </Box>
